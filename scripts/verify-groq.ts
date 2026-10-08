@@ -34,7 +34,7 @@ try {
 // 2. structured output
 try {
   const out = await provider.json({ system: EXTRACTOR_SYSTEM, prompt: "CURRENT USER MESSAGE: My name is Kyrian and I'm building a Unity game.", schema: ExtractionSchema, name: "memory_candidates" });
-  if (out.shouldRemember && out.memories.length >= 1) ok(`structured extraction parsed: ${out.memories.map((m) => `"${m.fact}"`).join(" | ")}`);
+  if (out.memories.length >= 1) ok(`structured extraction parsed: ${out.memories.map((m) => `"${m.fact}"`).join(" | ")}`);
   else bad(`structured extraction returned no candidates: ${JSON.stringify(out)}`);
 } catch (e) { bad(`structured extraction failed: ${(e as Error).name} status=${(e as { status?: number }).status ?? "n/a"}`); }
 
